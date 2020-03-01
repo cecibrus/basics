@@ -1,0 +1,29 @@
+#programa que corrije las palabras y las imprime en el orden correcto-> Las dos últimas letras de cada palabra se traspusieron al principio.
+#Por ejemplo: penguin -> inpengu, academy -> myacade
+
+lista=['oscreem', 'ueq', 'la', 'óncodificaci', 'ñaense', 'eshabilidad', 'eld', 'losig', '21', 'osusam', 'la', 'óncodificaci', 'moco', 'nau', 'taherramien', 'rapa', 'armostr', 'moco'] #la lista que se debe decodificar
+
+lista_ordenada=[ ] #se crea una lista vacia donde se pueda ir agregando las palabras una vez ordenadas
+
+for palabra in lista: #el for recorre la lista
+  cantidad=len(palabra) #se cuenta la cantidad de letras de la palabra
+  palabra_ordenada=palabra #se carga la palabra desordenada a una nueva variable para poder ordenarla
+  palabra_ordenada=palabra_ordenada+palabra[0] 
+  palabra_ordenada=palabra_ordenada+palabra[1]
+  #en las dos lineas anteriores se mueven las letras del comienzo al final para ordenarlas, la palabra 'oscreem' queda como 'oscreemos'
+  lista_ordenada.append(palabra_ordenada[2:])
+  #como la palabra ya esta ordenada pero tiene las letras sobrantes, se agrega al final de la lista vacia pero solo desde la posicion 2, o sea queda siemplemente 'creemos'
+    #while cantidad<2:
+    #lista_ordenada.append(palabra)
+    #cantidad=2
+    #muere cuando hay palabras de una sola letra
+#
+
+print(lista_ordenada) #se imprime la lista
+
+string="" #se crea una cadena vacia donde se agregaran las palabras para formar una sola oracion
+
+for x in lista_ordenada:
+  string=string+" "+x #se van agregando las palabras a la cadena con un espacio intermedio
+
+print(string)
