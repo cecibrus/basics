@@ -1,0 +1,33 @@
+#programa que imprime los numeros del 1 al 100, pero reemplaza los multiplos de 3 con Fizz, los de 5 con Buzz, y los de 3 y 5 simultaneamente con FizzBuzz
+
+#se define la funcion FB que recibe como parametros dos numeros que representan el rango de valores en el que se imprimira la lista. 
+def FB(num1,num2):
+  for x in range(num1,num2+1): #num2+1 ajusta el rango 
+    if x%3==0 and x%5==0: #es necesario que esta sea la primera pregunta, porque si por ejemplo x%3 esta primero, va a entrar a ese if e imprimir Fizz antes de verificar si es multiplo de 5 tambien
+      print("FizzBuzz,", end =" ") 
+    elif x%5==0: #se verifican ambas condiciones restantes por separado y se imprimen las palabras correspondientes
+      print("Buzz,", end =" ")
+    elif x%3==0:
+      print("Fizz,", end =" ")
+    else: #se imprime directamente el numero
+      print(x,",", end =" ")
+
+print("Este programa imprime los numeros dentro de un rango, reemplazando los multiplos de 3 por Fizz, los de 5 por Buzz y los de 3 y 5 por FizzBuzz")
+FB(1,100)
+
+#ahora se pide al usuario que ingrese un rango distinto 
+lim_inf=input("Ingrese un numero para el limite inferior: ")
+while lim_inf.isnumeric() != True: 
+    lim_inf=input("Ingrese un numero: ")
+lim_inf=int(lim_inf)
+
+lim_sup=input("Ingrese un numero para el limite superior: ")
+while lim_sup.isnumeric() != True: 
+    lim_sup=input("Ingrese un numero: ")
+lim_sup=int(lim_sup)
+
+#se verifica que lo ingresado sean numeros, y se repite hasta que sea valido
+
+#se llama la funcion con los los valores ingresados por el usuario
+
+FB(lim_inf,lim_sup)
