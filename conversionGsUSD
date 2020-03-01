@@ -1,0 +1,19 @@
+#programa para hacer una conversion de un monto en dolares a guaranies
+
+factor_conversion=6330  #es el valor en guaranies de un dolar, por el que se debe multiplicar para obtener el monto en guaranies
+
+print("Bienvenido al conversor de divisas.") #saludo
+monto_dolares=input("Ingrese el monto en dolares para saber su valor en guaranies:") #se pide al usuario que ingrese el monto a ser convertido en guaranies
+
+monto_guaranies=float(monto_dolares)*factor_conversion
+#simplemente se multiplica el valor convertido a entero del monto ingresado por el usuario,por el factor de conversion y eso resulta en el monto en guaranies
+
+print("El valor de USD", monto_dolares,"es PYG",monto_guaranies)
+
+#guaranies a dolares
+monto_guaranies1=input("Ingrese el monto en guaranies para saber su valor en dolares:") #se pide al usuario que ingrese el monto a ser convertido a dolares
+
+monto_dolares1=float(monto_guaranies1)/factor_conversion
+#se divide el monto por el factor de conversion y asi se obtiene el valor en dolares
+
+print("El valor de PYG", monto_guaranies1,"es USD",monto_dolares1)
