@@ -1,0 +1,56 @@
+#programa que genera un numero aleatorio y luego pide al usuario que lo adivine
+
+from random import randint
+
+#funcion que verifica que lo ingresado por el usuario sea efectivamente un numero, y repite el proceso hasta conseguir uno y es ese el retorno de la funcion.
+def ingresar_numero():
+  numero=input("Ingrese el numero: ")
+  while numero.isnumeric() != True: 
+    numero=input("Ingrese un numero: ")
+  numero=int(numero)
+  return numero
+
+#funcion que genera un numero aleatorio dentro de un rango ingresado por el usuario. Se vale de la funcion ingresar_numero para verificar que estos valores sean validos y retorna el numero generado.
+def generar_aleatorio_rango():
+  print("LIMITE INFERIOR")
+  lim_inf=ingresar_numero()
+  print("LIMITE SUPERIOR")
+  lim_sup=ingresar_numero()
+  rand=randint(lim_inf, lim_sup)
+  return rand
+
+#funcion en la que ocurre el juego
+def juego(intento):
+  ban=False #se define la bandera para poder finalizar el juego una vez que el usuario adivine el numero
+  cont=1 #contador que acumula la cantidad de intentos del usuario
+  while ban!=True: 
+    if intento<adivinar:
+      print("Lo siento, ¡inténtalo de nuevo! Muy bajo.")
+      print("ADIVINA")
+      intento=ingresar_numero() #se vuelve a pedir otro numero
+      cont=cont+1  #se aumenta el contador de intentos
+    elif intento>adivinar:
+      print("Lo siento, ¡inténtalo de nuevo! Muy alto.")
+      print("ADIVINA")
+      intento=ingresar_numero()
+      cont=cont+1
+    else:
+      print("¡Felicidades! Lo has adivinado.")
+      print("Te tomo", cont,"intentos")
+      ban=True #se cambia la bandera para poder salir del while
+
+#saludo al usuario y la primera ronda es del 1 al 100
+print("Bienvenido al juego del adivinador. Intenta adivinar un numero del 1 al 100")
+adivinar=randint(1,100) #se genera el numero a ser adivinado
+print("ADIVINA")
+adivinado=ingresar_numero() #se valida
+juego(adivinado) #el juego en si que termina por si mismo
+
+#ahora el usuario puede elegir el rango
+print("Ahora puedes elegir el rango del numero a ser adivinado.")
+adivinar=generar_aleatorio_rango() #se genera y se validan los numeros y nuevamente se juega
+print("ADIVINA")
+adivinado=ingresar_numero()
+juego(adivinado)
+
+#finaliza
